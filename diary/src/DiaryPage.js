@@ -12,25 +12,24 @@ import  "./DiaryStyleSheet.css";
                 <span className="color-indicator"></span>
             </div>
         </div>
-
         {/*Diary page*/}
         <div className="diary-page">
-            <div className="pages"></div>
+            <div className="pages">
                 <div className="left-page"></div>
                 <div className="right-page"></div>
             </div>
-            
-
-        {/*Sidebar buttons*/}
-        <div className="sidebar-button-container">
-            <button className="sidebar-button">T</button>
-            <button className="sidebar-button"></button>
-            <button className="sidebar-button">M</button>
-            <button className="sidebar-button">...</button>
         </div>
+
 
         {/*Arrow button*/}
         <button className="arrow-button">→</button>
+        {/*Sidebar*/}
+        <div className="sidebar-button-container">
+            <button className="sidebar-button">T</button>
+            <button className="sidebar-button">🖼</button>
+            <button className="sidebar-button">M</button>
+            <button className="sidebar-button">...</button>
+        </div>
     </div>
    );
 }
