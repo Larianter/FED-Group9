@@ -4,6 +4,7 @@ import  "./DiaryStyleSheet.css";
  function DiaryPageUI() {
     return (
         <div className="diary-container">
+            
         {/*Header*/}
         <div className="diary-header">
             <h1 className="diary-title">Diary_name</h1>
@@ -12,6 +13,7 @@ import  "./DiaryStyleSheet.css";
                 <span className="color-indicator"></span>
             </div>
         </div>
+
         {/*Diary page*/}
         <div className="diary-page">
             <div className="pages">
@@ -20,9 +22,9 @@ import  "./DiaryStyleSheet.css";
             </div>
         </div>
 
-
         {/*Arrow button*/}
         <button className="arrow-button">→</button>
+
         {/*Sidebar*/}
         <div className="sidebar-button-container">
             <button className="sidebar-button">T</button>
