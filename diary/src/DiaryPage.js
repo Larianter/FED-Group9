@@ -20,11 +20,12 @@ import { useNavigate } from "react-router-dom";
 
         {/*Diary page*/}
         <div className="diary-page">
-            <div className="pages">
-                <div className="left-page"></div>
-                <div className="right-page"></div>
+            <div className ="diary-spine"></div>
+                <div className="pages">
+                    <div className="left-page"></div>
+                    <div className="right-page"></div>
+                </div>
             </div>
-        </div>
 
         {/*Arrow button*/}
         <button className="arrow-button">→</button>
