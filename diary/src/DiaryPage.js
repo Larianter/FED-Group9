@@ -7,10 +7,12 @@ import  "./DiaryStyleSheet.css";
             
         {/*Header*/}
         <div className="diary-header">
-            <h1 className="diary-title">Diary_name</h1>
+            <button className="diary-title">Diary_name</button>
             <div className="customize-section">
-                <button>Customize page</button>
-                <span className="color-indicator"></span>
+                <button>
+                    Customize page
+                    <span className="color-indicator"></span>
+                </button>
             </div>
         </div>
 

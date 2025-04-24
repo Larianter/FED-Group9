@@ -19,7 +19,7 @@ body {
 /*Header*/
 .diary-header {
     width: 100%;
-    height: 2.5rem;
+    height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,6 +32,10 @@ body {
     padding-left: 1rem;
     font-size: 2rem;
     font-family: Inknut Antiqua;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .customize-section button {
@@ -49,12 +53,12 @@ body {
 
 
 .color-indicator {
-    display: flex;
-    align-items: center;
     width: 1.5rem;
     height: 1.5rem;
     background-color: white;
     border-radius: 50%;
+    align-self: center;
+    transform: translateY(2px);
 }
 
 /*Diary page*/
