@@ -20,12 +20,24 @@ function EntryPageUI() {
 
         {/*Diary page*/}
         <div className="diary-page">
-            <div className ="diary-spine"></div>
-                <div className="pages">
-                    <div className="left-page"></div>
-                    <div className="right-page"></div>
+        <div className ="diary-spine"></div>
+            <div className="pages">
+                <div className="left-page">
+                    <div className="page-header">Mood Summaries</div>
+                    <div className="sub-header">This Month</div>
+                        <ul>
+                            <li>test</li> {/*Fetch mood data from memory*/}
+                        </ul>
+                </div>
+                <div className="right-page">
+                    <div className="page-header">Entries</div>
+                    <div className="sub-header">This Month</div>
+                        <ul>
+                            <li>test</li> {/*Fetch previous entries from memory*/}
+                        </ul>
                 </div>
             </div>
+        </div>
     </div>
    );
 }

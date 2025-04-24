@@ -107,6 +107,34 @@ body {
 .right-page {
     border-left: 0.15rem  solid #c4aaa4;
 }
+.page-header {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 1.5px solid #453131;
+    padding-bottom: 0.5rem;
+    top: 10px;
+    z-index: 3;
+    font-size: 1.5rem;
+    font-family: Inknut Antiqua;
+    background-color: transparent;
+    color: #453131;
+  }
+
+  .sub-header {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    transform: translateX(-30%);
+    padding-bottom: 0.5rem;
+    top: 20px;
+    z-index: 3;
+    font-size: 1.5rem;
+    font-family: Inknut Antiqua;
+    background-color: transparent;
+    color: #453131;
+  }
 
 
 /*Sidebar*/
