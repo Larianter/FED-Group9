@@ -1,3 +1,26 @@
+/*Default brown theme*/
+:root {
+    --contrast-color: #453131;
+    --background-color: #CCC0B2;
+    --page-color: #EBE6D2;
+    --book-color: #88755B;
+    --spine-color: #685944;
+    --UItext-color: #FFFFFF;
+    --color-indicator: #C3B3A3;
+    --page-splitter: #c4aaa4;
+ }
+
+/*Pastel theme*/
+.neopolitan-theme {
+    --contrast-color: #E89BB5;
+    --background-color: #6C534E;
+    --page-color: #F8F5EA;
+    --book-color: #E89BB5;
+    --spine-color: #E1769A;
+    --UItext-color: #FFFFFF;
+    --color-indicator: #CE7C92;
+ }
+
 /*Body*/
 body {
     margin: 0;
@@ -26,7 +49,7 @@ textarea {
 /*Container and layout*/
 .diary-container {
     min-height: 100vh;
-    background-color: #b1a7a6;
+    background-color: var(--background-color);
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -41,8 +64,8 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #453131;
-    color: white;
+    background-color: var(--contrast-color);
+    color: var(--UItext-color);
     padding: 1rem;
 }
 
@@ -51,7 +74,7 @@ textarea {
     font-size: 2rem;
     font-family: Inknut Antiqua;
     background-color: transparent;
-    color: white;
+    color: var(--UItext-color);
     border: none;
     cursor: pointer;
 }
@@ -63,7 +86,7 @@ textarea {
     font-size: 2rem;
     background-color: transparent;
     font-family: Inknut Antiqua;
-    color: white;
+    color: var(--UItext-color);
     border: none;
     cursor: pointer;
     padding-right: 1rem;
@@ -73,7 +96,7 @@ textarea {
 .color-indicator {
     width: 1.5rem;
     height: 1.5rem;
-    background-color: white;
+    background-color: var(--color-indicator);
     border-radius: 50%;
     align-self: center;
     transform: translateY(2px);
@@ -84,7 +107,7 @@ textarea {
     width: 1000px;
     height: 700px;
     display: flex;
-    background-color: #88755B;
+    background-color: var(--book-color);
     border-radius: 1rem;
     position: relative;
     gap: 0rem;
@@ -95,7 +118,7 @@ textarea {
     width: 50px;
     top: 0rem;
     bottom: 0rem;
-    background-color: #685944;
+    background-color: var(--spine-color);
     border-radius: 0.25rem;
     position: absolute;
     left: 50%;
@@ -116,14 +139,14 @@ textarea {
 
 .left-page, .right-page {
     width: 50%;
-    background-color: #EBE6D2;
+    background-color: var(--page-color);
     border-radius: 1rem;
 }
 .left-page {
-    border-right: 0.15rem  solid #c4aaa4;
+    border-right: 0.15rem  solid var(--page-splitter);
 }
 .right-page {
-    border-left: 0.15rem  solid #c4aaa4;
+    border-left: 0.15rem  solid var(--page-splitter);
 }
 
 /*Entries Page*/
@@ -132,14 +155,14 @@ textarea {
     width: 60%;
     margin: 0 auto;
     text-align: center;
-    border-bottom: 1.5px solid #453131;
+    border-bottom: 1.5px solid var(--contrast-color);
     padding-bottom: 0.5rem;
     top: 10px;
     z-index: 3;
     font-size: 1.5rem;
     font-family: Inknut Antiqua;
     background-color: transparent;
-    color: #453131;
+    color: var(--contrast-color);
   }
 
   .sub-header {
@@ -153,14 +176,14 @@ textarea {
     font-size: 1.5rem;
     font-family: Inknut Antiqua;
     background-color: transparent;
-    color: #453131;
+    color: var(--contrast-color);
   }
 
   .entry-item {
     position:fixed;
     text-align: center;
     font-size: 1rem;
-    color:#453131;
+    color: var(--contrast-color);
   }
 
   /*Popup modal*/
@@ -178,27 +201,27 @@ textarea {
 .modal-content {
     background: #EBE6D2;
     padding: 2rem;
-    border:#685944 6px solid;
+    border: var(--book-color) 6px solid;
     border-radius: 12px;
     width: 20%;
     max-width: 500px;
     font-size: 1rem;
-    color:#453131;
+    color: var(--contrast-color);
 }
 
 .button {
     font-family: Inknut Antiqua;
     font-size: 1rem;
-    color: white;
-    background-color: #453131;
-    border:#453131 2px solid;
+    color: var(--UItext-color);
+    background-color: var(--contrast-color);
+    border: var(--contrast-color) 2px solid;
     border-radius: 4px;
     margin-right: 5px;
 }
 
 .button:hover {
-    background-color: #EBE6D2;
-    color:#453131;
+    background-color: var(--UItext-color);
+    color: var(--contrast-color);
 }
 
 /*Sidebar*/
@@ -207,7 +230,7 @@ textarea {
     top: 50%;
     right: 1rem;
     transform: translateY(-50%);
-    background-color: #453131;
+    background-color: var(--contrast-color);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -224,7 +247,7 @@ textarea {
     height: 3rem;
     font-size: 1.5rem;
     background-color: transparent;
-    color: white;
+    color: var(--UItext-color);
     border: none;
     cursor: pointer;
     display: flex;
@@ -240,8 +263,8 @@ textarea {
     height: 3rem;
     width: 3rem;
     font-size: large;
-    background-color: #453131;
-    color: white;
+    background-color: var(--contrast-color);
+    color: var(--UItext-color);
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
