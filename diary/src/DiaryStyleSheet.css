@@ -2,6 +2,24 @@
 body {
     margin: 0;
     overflow-x: hidden;
+    font-family: Inknut Antiqua;
+}
+input {
+    font-family: Inknut Antiqua;
+    background-color: white;
+    border:#685944 2px solid;
+    border-radius: 2px;
+    margin-bottom: 0.25rem;
+    width: 300px;
+}
+textarea {
+    font-family: Inknut Antiqua;
+    background-color: white;
+    border:#685944 2px solid;
+    border-radius: 2px;
+    width: 300px;
+    height: 200px;
+    resize: none;
 }
 
 
@@ -107,6 +125,8 @@ body {
 .right-page {
     border-left: 0.15rem  solid #c4aaa4;
 }
+
+/*Entries Page*/
 .page-header {
     position: relative;
     width: 60%;
@@ -136,6 +156,50 @@ body {
     color: #453131;
   }
 
+  .entry-item {
+    position:fixed;
+    text-align: center;
+    font-size: 1rem;
+    color:#453131;
+  }
+
+  /*Popup modal*/
+  .modal-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.modal-content {
+    background: #EBE6D2;
+    padding: 2rem;
+    border:#685944 6px solid;
+    border-radius: 12px;
+    width: 20%;
+    max-width: 500px;
+    font-size: 1rem;
+    color:#453131;
+}
+
+.button {
+    font-family: Inknut Antiqua;
+    font-size: 1rem;
+    color: white;
+    background-color: #453131;
+    border:#453131 2px solid;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.button:hover {
+    background-color: #EBE6D2;
+    color:#453131;
+}
 
 /*Sidebar*/
 .sidebar-button-container {
@@ -167,8 +231,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-
 
 /*arrow button*/
 .arrow-button {
