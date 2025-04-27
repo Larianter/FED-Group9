@@ -10,8 +10,8 @@
     --page-splitter: #c4aaa4;
  }
 
-/*Pastel theme*/
-.neopolitan-theme {
+/*Neapolitan theme*/
+.theme-neapolitan {
     --contrast-color: #E89BB5;
     --background-color: #6C534E;
     --page-color: #F8F5EA;
@@ -101,6 +101,45 @@ textarea {
     align-self: center;
     transform: translateY(2px);
 }
+
+/*Color theme popup*/
+.theme-option-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: var(--contrast-color);
+    border-radius: 1rem;
+    color: var(--UItext-color);
+    padding: 1rem;
+    height: 200px;
+}
+.theme-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: Inknut Antiqua;
+    background-color: transparent;
+    color: var(--UItext-color);
+}
+  
+.theme-sphere {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid var(--UItext-color);
+}
+  
+.theme-sphere.brown {
+    background-color: #6C534E;
+}
+  
+.theme-sphere.neapolitan {
+    background-color: #CE7C92;
+}
+
 
 /*Diary page*/
 .diary-page {
