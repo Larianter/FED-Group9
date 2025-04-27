@@ -186,15 +186,32 @@ textarea {
 }
 .right-page {
     border-left: 0.15rem  solid var(--page-splitter);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
+.right-page .entry-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
+  .entry-field-text.right-page-text {
+    flex-grow: 1;
+    margin-bottom: 20px; /* space between text area and mood tracker */
+  }
+  .mood-section {
+    margin-top: auto; 
+  }
 /*Diary entry form*/
 .entry-form {
     display:flex;
-    position:fixed;
+    position:relative;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
+    align-items: start;
+    width: 4px;
+    height: 675px;
     padding-top: 1rem;
     padding-left: 1rem;
 }
@@ -211,7 +228,8 @@ textarea {
 .entry-field-text {
     color: var(--contrast-color);
     border-radius: 0;
-    width: 133%;
+    width: 400px;
+    height: 600px;
     background: transparent;
     margin: 0.5rem;
     padding: 0.5rem;

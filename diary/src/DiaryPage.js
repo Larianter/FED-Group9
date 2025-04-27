@@ -31,6 +31,13 @@ const formSubmission = (event) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [popupType, setPopupType] = useState(null);
 
+    const [leftText, setLeftText] = useState("");
+    const [rightText, setRightText] = useState("");
+    const [title, setTitle] = useState("");
+    const [text, setText] = useState("");
+    const [mood, setMood] = useState("");
+    const [image, setImage] = useState("");
+
     useEffect(() => {
         const savedTheme = localStorage.getItem('selectedTheme');
         if (savedTheme) {
@@ -63,52 +70,176 @@ const formSubmission = (event) => {
         closePopup();
     };
 
+    const handleSave = (event) => {
+        event.preventDefault();
+      
+        const title = document.getElementById('title').value; 
+        const text = leftText;  // Use state for leftText 
+        const rightTextContent = rightText;  // Use state for rightText
+        const mood = document.querySelector('input[name="mood"]:checked')?.value;
+
+        const imageInput = document.getElementById('image');
+        const imageFile = imageInput ? imageInput.files[0] : null;
+
+        if (!title || !text || !mood) {
+            console.log("Title, Text, or Mood is missing");
+            return;
+        }
+
+        let image = "";
+
+        if (imageFile) {
+            // If an image file is selected, convert it to base64
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                const base64String = reader.result;
+
+                const newEntry = {
+                    title,
+                    text,
+                    rightTextContent,
+                    mood,
+                    image: base64String // Save image as base64
+                };
+
+                addEntry(newEntry); 
+            };
+            reader.readAsDataURL(imageFile);
+        } else {
+            // If no image is uploaded, save empty image
+            const newEntry = {
+                title,
+                text,
+                rightTextContent,
+                mood,
+                image: "" // No image uploaded
+            };
+            addEntry(newEntry);
+        }
+    };
     return (
         <div className="diary-container">
-            
-        {/*Header*/}
-        <div className="diary-header">
+
+            {/*Header*/}
+            <div className="diary-header">
             <button className="diary-title" onClick={navigateToEntry}>Diary_name</button>
             <div className="customize-section">
                 <button onClick={openThemePopup}>Customize page</button> {/*Opens color popup*/}
                 <span className="color-indicator"></span>
             </div>
-        </div>
-
-        {/*Diary page*/}
-        <div className="diary-page">
-            <div className ="diary-spine"></div>
-                <div className="pages">
-                    <div className="left-page">
-                        <form onSubmit={formSubmission} className="entry-form" >
-                            <input className="entry-field" type="text" id="title" placeholder="Title" />
-                            <textarea className="entry-field-text" type="text" id="text" maxLength="500" placeholder="Maximum 500 characters" />
-                            <label className="entry-field">Today's Mood</label>
-                            <div className="entry-mood-tracker">
-                                <label className="entry-mood-label" htmlFor="mood1">Terrible</label>
-                                <input className="entry-mood-radio" type="radio" name="mood" id="mood1" value="1" />
-                                <input className="entry-mood-radio" type="radio" name="mood" id="mood2" value="2" />
-                                <input className="entry-mood-radio" type="radio" name="mood" id="mood3" value="3" />
-                                <input className="entry-mood-radio" type="radio" name="mood" id="mood4" value="4" />
-                                <input className="entry-mood-radio" type="radio" name="mood" id="mood5" value="5" />
-                                <label className="entry-mood-label" htmlFor="mood1">Great</label>
-                            </div>
-                            <input className="entry-field" type="image" id="image" />
-                            <button className="save-entry-button" type="submit">Save</button>
-                        </form>
-                    </div>
-                    <div className="right-page"></div>
-                </div>
             </div>
 
+            {/*Diary page*/}
+            <div className="diary-page">
+            <div className="diary-spine"></div>
+            <div className="pages">
+                
+                {/* Left Page */}
+                <div className="left-page">
+                <div className="entry-form">
+                    <input
+                    className="entry-field"
+                    type="text"
+                    id="title"
+                    placeholder="Title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <textarea
+                    className="entry-field-text"
+                    id="leftText"
+                    maxLength="500"
+                    placeholder="Maximum 500 characters"
+                    value={leftText}
+                    onChange={(e) => setLeftText(e.target.value)}
+                    />
+                </div>
+                </div>
 
-        {/*Sidebar*/}
-        <div className="sidebar-button-container">
-            <button className="sidebar-button" onClick = {openTextPopup}>T</button>
+                {/* Right Page */}
+                <div className="right-page">
+                <div className="entry-form">
+                    <textarea
+                    className="entry-field-text right-page-text"
+                    id="rightText"
+                    maxLength="500"
+                    placeholder="Maximum 500 characters"
+                    value={rightText}
+                    onChange={(e) => setRightText(e.target.value)}
+                    />
+
+                    <div className="mood-section">
+                    <label className="entry-field">Today's Mood</label>
+                    <div className="entry-mood-tracker">
+                        <label className="entry-mood-label">Terrible</label>
+                        <input
+                        className="entry-mood-radio"
+                        type="radio"
+                        name="mood"
+                        value="1"
+                        checked={mood === "1"}
+                        onChange={(e) => setMood(e.target.value)}
+                        />
+                        <input
+                        className="entry-mood-radio"
+                        type="radio"
+                        name="mood"
+                        value="2"
+                        checked={mood === "2"}
+                        onChange={(e) => setMood(e.target.value)}
+                        />
+                        <input
+                        className="entry-mood-radio"
+                        type="radio"
+                        name="mood"
+                        value="3"
+                        checked={mood === "3"}
+                        onChange={(e) => setMood(e.target.value)}
+                        />
+                        <input
+                        className="entry-mood-radio"
+                        type="radio"
+                        name="mood"
+                        value="4"
+                        checked={mood === "4"}
+                        onChange={(e) => setMood(e.target.value)}
+                        />
+                        <input
+                        className="entry-mood-radio"
+                        type="radio"
+                        name="mood"
+                        value="5"
+                        checked={mood === "5"}
+                        onChange={(e) => setMood(e.target.value)}
+                        />
+                        <label className="entry-mood-label">Great</label>
+                    </div>
+
+                    <input
+                        className="entry-field"
+                        type="text"
+                        id="image"
+                        placeholder="Image URL"
+                        value={image}
+                        onChange={(e) => setImage(e.target.value)}
+                    />
+                    </div> {/* end of mood-section */}
+                </div> {/* end of entry-form */}
+                </div> {/* end of right-page */}
+
+            </div> {/* end of pages */}
+            </div> {/* end of diary-page */}
+
+            {/*Sidebar*/}
+            <div className="sidebar-button-container">
+            <button className="sidebar-button" onClick={openTextPopup}>T</button>
             <button className="sidebar-button">🖼</button>
             <button className="sidebar-button">...</button>
-        </div>
-        <Popup isOpen={isPopupOpen} onClose={closePopup}>
+            </div>
+
+            <button className="save-entry-button" onClick={handleSave}>Save</button>
+
+            <Popup isOpen={isPopupOpen} onClose={closePopup}>
             {popupType === 'text' && (
                 <>
                 <h2>Text Tool</h2>
@@ -121,16 +252,17 @@ const formSubmission = (event) => {
                 <div className="theme-option-container">
                     <h2>Choose a Theme</h2>
                     <div className="theme-option" onClick={() => switchTheme('brown')}>
-                        <span className="theme-sphere brown"></span> Brown Theme
+                    <span className="theme-sphere brown"></span> Brown Theme
                     </div>
                     <div className="theme-option" onClick={() => switchTheme('neapolitan')}>
-                        <span className="theme-sphere neapolitan"></span> Neapolitan Theme
+                    <span className="theme-sphere neapolitan"></span> Neapolitan Theme
                     </div>
                 </div>
                 </>
             )}
-        </Popup>
-    </div>
-   );
-}
+            </Popup>
+
+        </div> // end of diary-container
+        );
+    };
 export default DiaryPageUI;
