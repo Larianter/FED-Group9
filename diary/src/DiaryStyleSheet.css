@@ -149,6 +149,69 @@ textarea {
     border-left: 0.15rem  solid var(--page-splitter);
 }
 
+/*Diary entry form*/
+.entry-form {
+    display:flex;
+    position:fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.entry-field {
+    color: var(--contrast-color);
+    font-size: 1.5rem;
+    border-radius: 0;
+    display:flex;
+    background: transparent;
+    margin:0.5rem;
+}
+
+.entry-field-text {
+    color: var(--contrast-color);
+    border-radius: 0;
+    width: 133%;
+    background: transparent;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    overflow-y: auto;
+    resize: none; /* Optional */
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.entry-mood-tracker {
+    display:flex;
+    flex-direction: row;
+    margin:0.5rem;
+}
+
+.entry-mood-radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--contrast-color);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.entry-mood-radio:checked {
+    background-color: var(--contrast-color);
+}
+
+.entry-mood-label {
+    font-size: 1rem;
+    color: var(--contrast-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /*Entries Page*/
 .page-header {
     position: relative;
@@ -180,8 +243,7 @@ textarea {
   }
 
   .entry-item {
-    position:fixed;
-    text-align: center;
+    text-align: left;
     font-size: 1rem;
     color: var(--contrast-color);
   }
@@ -199,7 +261,7 @@ textarea {
 }
 
 .modal-content {
-    background: #EBE6D2;
+    background: var(--background-color);
     padding: 2rem;
     border: var(--book-color) 6px solid;
     border-radius: 12px;
@@ -255,11 +317,28 @@ textarea {
     justify-content: center;
 }
 
+.sidebar-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    z-index: 1000;
+}
+
+.sidebar-popup-content {
+    background: #EBE6D2;
+    padding: '20px';
+    width: '280px';
+    color: 'white';
+}
+
 /*arrow button*/
 .arrow-button {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 10rem;
+    right: 30rem;
     height: 3rem;
     width: 3rem;
     font-size: large;

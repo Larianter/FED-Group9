@@ -12,21 +12,7 @@ function EntryPageUI() {
     const [entries, setEntries] = useState([])
     useEffect(() => {
         const storedEntries = getAllEntries();
-        if (storedEntries.length === 0) {
-            const debugEntry = {
-                id:Date.now(),
-                title:"Test Entry",
-                text:"Debug",
-                mood:3,
-                timestamp: new Date().toISOString(),
-                image:""
-            };
-            const newEntries = [debugEntry]
-            localStorage.setItem("diaryEntries",JSON.stringify(newEntries));
-            setEntries(newEntries)
-        } else {
-            setEntries(storedEntries);
-        }
+        setEntries(storedEntries);
     },[]);
 
     return (
