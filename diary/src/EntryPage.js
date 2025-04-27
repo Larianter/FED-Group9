@@ -3,16 +3,46 @@ import  "./DiaryStyleSheet.css";
 import { useNavigate } from "react-router-dom";
 import { getAllEntries, updateEntry } from "./DiaryStorage";
 
+{/*Maps mood entries and returns summary*/}
+function getMoodSummaries(entries) {
+    const summaries = {};
+    const now = new Date();
+
+    for (let i = 0; i < 6; i++) {
+        const date = new Date(now.getFullYear(), now.getMonth()-i,1)
+        const yearMonthKey =`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+        summaries[yearMonthKey] = {
+            moodSum: 0,
+            count: 0,
+        };
+    }
+
+    entries.forEach(entry => {
+        const entryDate = new Date(entry.timestamp);
+        const yearMonthKey = `${entryDate.getFullYear()}-${String(entryDate.getMonth() + 1).padStart(2, '0')}`;
+        if (summaries[yearMonthKey]) {
+            summaries[yearMonthKey].moodSum += entry.mood;
+            summaries[yearMonthKey].count += 1;
+        }
+    });
+
+    return summaries;
+}
+
+{/*Draw Entry page UI*/}
 function EntryPageUI() {
     const [selectedEntry,setSelectedEntry] = useState(null);
 
     const navigate = useNavigate();
     const navigateToDiary = () => {navigate('/')}
 
-    const [entries, setEntries] = useState([])
+    const [entries, setEntries] = useState([]);
+    const [moodSummaries, setMoodSummaries] = useState({});
+
     useEffect(() => {
         const storedEntries = getAllEntries();
         setEntries(storedEntries);
+        setMoodSummaries(getMoodSummaries(storedEntries));
     },[]);
 
     return (
@@ -33,9 +63,19 @@ function EntryPageUI() {
             <div className="pages">
                 <div className="left-page">
                     <div className="page-header">Mood Summaries</div>
-                    <div className="sub-header">This Month</div>
+                    <div className="sub-header">Recent Months</div>
                         <ul>
-                            <li>test</li> {/*Fetch mood data from memory*/}
+                            {Object.entries(moodSummaries).map(([month,data]) => {
+                                const averageMood = data.count > 0 ? (data.moodSum / data.count).toFixed(2) : "N/A";
+                                const date = new Date(month + "-01");
+                                const monthName = date.toLocaleString('default', { month: 'long', year: 'numeric'});
+                                return (
+                                    <li key={month} className="entry-item">
+                                        <strong>{monthName}</strong><br/>
+                                        Avg Mood: {averageMood}
+                                    </li>
+                                )
+                            })}
                         </ul>
                 </div>
                 <div className="right-page">

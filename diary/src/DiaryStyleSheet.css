@@ -251,7 +251,8 @@ textarea {
     align-items: center;
 }
 
-/*Entries Page*/
+/*ENTRY PAGE START*/
+/*Entries Page Headers*/
 .page-header {
     position: relative;
     width: 60%;
@@ -309,6 +310,7 @@ textarea {
     font-size: 1rem;
     color: var(--contrast-color);
 }
+/*ENTRY PAGE END*/
 
 .button {
     font-family: Inknut Antiqua;
