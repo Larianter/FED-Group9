@@ -337,7 +337,7 @@ textarea {
     justify-content: space-evenly;
     align-items: center;
     width: 4rem;
-    height: 18rem;
+    height: 12rem;
     border-radius: 1rem;
     padding: 1rem 0;
     z-index: 1000;
@@ -374,14 +374,16 @@ textarea {
 }
 
 /*arrow button*/
-.arrow-button {
+.save-entry-button {
     position: fixed;
-    bottom: 10rem;
-    right: 30rem;
+    bottom: 2rem;
+    right: 1rem;
     height: 3rem;
-    width: 3rem;
+    width: 4rem;
     font-size: large;
     background-color: var(--contrast-color);
+    font-size: 15px;
+    font-weight: bold;
     color: var(--UItext-color);
     border: none;
     border-radius: 0.5rem;

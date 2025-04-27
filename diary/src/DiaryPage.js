@@ -94,7 +94,7 @@ const formSubmission = (event) => {
                                 <label className="entry-mood-label" htmlFor="mood1">Great</label>
                             </div>
                             <input className="entry-field" type="image" id="image" />
-                            <button className="arrow-button" type="submit">→</button>
+                            <button className="save-entry-button" type="submit">Save</button>
                         </form>
                     </div>
                     <div className="right-page"></div>
@@ -106,7 +106,6 @@ const formSubmission = (event) => {
         <div className="sidebar-button-container">
             <button className="sidebar-button" onClick = {openTextPopup}>T</button>
             <button className="sidebar-button">🖼</button>
-            <button className="sidebar-button">M</button>
             <button className="sidebar-button">...</button>
         </div>
         <Popup isOpen={isPopupOpen} onClose={closePopup}>
