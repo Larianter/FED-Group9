@@ -16,11 +16,12 @@ function saveAllEntries(entries){
 // timestamp = auto-generated
 // image = String(base64)
 
-export function addEntry({title, text, mood, image}) {
+export function addEntry({title, text1, text2, mood, image}) {
     const newEntry = {
         id: Date.now(),
         title,
-        text,
+        text1,
+        text2,
         mood: parseInt(mood),
         timestamp: new Date().toISOString(),
         image: image || "",

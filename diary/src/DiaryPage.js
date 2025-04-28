@@ -10,16 +10,16 @@ const formSubmission = (event) => {
 
     // Collect form data
     const title = document.getElementById('title').value;
-    const text = document.getElementById('text').value;
+    const text1 = document.getElementById('text1').value;
+    const text2 = document.getElementById('text2').value;
     const mood = document.querySelector('input[name="mood"]:checked')?.value; // Get selected mood
-    const image = document.getElementById('image').value; // Optional: Collect the image URL or path
 
     // Call the addEntry function with the collected data
     const newEntry = addEntry({
         title,
-        text,
+        text1,
+        text2,
         mood,
-        image
     });
 
     // Optionally, clear the form fields after submission
@@ -68,7 +68,7 @@ const formSubmission = (event) => {
             
         {/*Header*/}
         <div className="diary-header">
-            <button className="diary-title" onClick={navigateToEntry}>Diary_name</button>
+            <button className="diary-title" onClick={navigateToEntry}>My Diary</button>
             <div className="customize-section">
                 <button onClick={openThemePopup}>Customize page</button> {/*Opens color popup*/}
                 <span className="color-indicator"></span>
@@ -82,8 +82,11 @@ const formSubmission = (event) => {
                     <div className="left-page">
                         <form onSubmit={formSubmission} className="entry-form" >
                             <input className="entry-field" type="text" id="title" placeholder="Title" />
-                            <textarea className="entry-field-text" type="text" id="text" maxLength="500" placeholder="Maximum 500 characters" />
-                            <label className="entry-field">Today's Mood</label>
+                            <div className="entry-subcontainer">
+                                <textarea className="entry-field-text" type="text1" id="text1" maxLength="1100" placeholder="Start writing..." />
+                                <textarea className="entry-field-text" type="text2" id="text2" maxLength="1100" placeholder="Start writing..." />
+                            </div>
+                            <label className="mood-tracker-header">Today's Mood</label>
                             <div className="entry-mood-tracker">
                                 <label className="entry-mood-label" htmlFor="mood1">Terrible</label>
                                 <input className="entry-mood-radio" type="radio" name="mood" id="mood1" value="1" />
@@ -93,8 +96,7 @@ const formSubmission = (event) => {
                                 <input className="entry-mood-radio" type="radio" name="mood" id="mood5" value="5" />
                                 <label className="entry-mood-label" htmlFor="mood1">Great</label>
                             </div>
-                            <input className="entry-field" type="image" id="image" />
-                            <button className="save-entry-button" type="submit">Save</button>
+                            <button className="submit-button" type="submit">Save</button>
                         </form>
                     </div>
                     <div className="right-page"></div>

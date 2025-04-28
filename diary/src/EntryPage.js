@@ -3,7 +3,7 @@ import  "./DiaryStyleSheet.css";
 import { useNavigate } from "react-router-dom";
 import { getAllEntries, updateEntry } from "./DiaryStorage";
 
-{/*Maps mood entries and returns summary*/}
+//Maps mood entries and returns summary
 function getMoodSummaries(entries) {
     const summaries = {};
     const now = new Date();
@@ -29,7 +29,7 @@ function getMoodSummaries(entries) {
     return summaries;
 }
 
-{/*Draw Entry page UI*/}
+//Draw Entry page UI
 function EntryPageUI() {
     const [selectedEntry,setSelectedEntry] = useState(null);
 
@@ -72,6 +72,7 @@ function EntryPageUI() {
                                 return (
                                     <li key={month} className="entry-item">
                                         <strong>{monthName}</strong><br/>
+                                        Total Entries: {data.count}<br/>
                                         Avg Mood: {averageMood}
                                     </li>
                                 )
@@ -106,8 +107,12 @@ function EntryPageUI() {
                     </div>
                     <div>
                         <textarea
-                            value={selectedEntry.text}
-                            onChange={(e) => setSelectedEntry({...selectedEntry, text: e.target.value})}>
+                            value={selectedEntry.text1}
+                            onChange={(e) => setSelectedEntry({...selectedEntry, text1: e.target.value})}>
+                        </textarea>
+                        <textarea
+                            value={selectedEntry.text2}
+                            onChange={(e) => setSelectedEntry({...selectedEntry, text2: e.target.value})}>
                         </textarea>
                     </div>
                     <div>
