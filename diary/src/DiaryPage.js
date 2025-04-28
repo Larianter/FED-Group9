@@ -113,23 +113,52 @@ const formSubmission = (event) => {
         <Popup isOpen={isPopupOpen} onClose={closePopup}>
             {popupType === 'text' && (
                 <>
-                <h2>Text Tool</h2>
-                <p>Test</p>
-                <button onClick={closePopup}>Close</button>
+                <div className="sidebar-text-popup">
+                    <div className="sidebar-text-popup-stroke">
+                        <div className="text-popup-section">
+                            <label>Typography:</label>
+                            <select className="typography-select">
+                                <option value="default">Default</option>
+                                <option value="serif">Serif</option>
+                                <option value="sans-serif">Sans Serif</option>
+                                <option value="monospace">Monospace</option>
+                                {/* Dynamically map font options here */}
+                            </select>
+                        </div>
+
+                        <div className="text-popup-buttons">
+                            <button className="text-style-button">B</button>
+                            <button className="text-style-button">I</button>
+                            <button className="text-style-button">U</button>
+                        </div>
+
+                        <div className="text-popup-section">
+                            <label>Text colour:</label>
+                            <input type="color" className="color-input" />
+                        </div>
+
+                        <div className="text-popup-section">
+                            <label>Text highlight:</label>
+                            <input type="color" className="color-input" />
+                        </div>
+                        <button className="close-popup-button" onClick={closePopup}>Close</button>
+                    </div>
+                </div>
                 </>
             )}
             {popupType === 'theme' && (
                 <>
                 <div className="theme-option-container">
-                    <div className="theme-option-stroke"></div>
-                    <h2>Choose a Theme</h2>
-                    <div className="theme-option" onClick={() => switchTheme('brown')}>
+                    <div className="theme-option-stroke">
+                        <h2>Choose a Theme</h2>
+                        <div className="theme-option" onClick={() => switchTheme('brown')}>
                         <span className="theme-sphere brown"></span> Brown Theme
-                    </div>
-                    <div className="theme-option" onClick={() => switchTheme('neapolitan')}>
+                        </div>
+                        <div className="theme-option" onClick={() => switchTheme('neapolitan')}>
                         <span className="theme-sphere neapolitan"></span> Neapolitan Theme
+                        </div>
                     </div>
-                </div>
+                    </div>
                 </>
             )}
         </Popup>
