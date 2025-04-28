@@ -23,7 +23,7 @@
 
 .theme-space-marine {
     --contrast-color: #0d407f;
-    --background-color: #6C534E;
+    --background-color: #8196b3;
     --page-color: #ecebe6;
     --book-color: #1f5191;
     --spine-color: #0d407f;
@@ -32,13 +32,33 @@
 }
 
 .theme-edgelord {
-    --contrast-color: #0d0d0d;
+    --contrast-color: #131313;
     --background-color: #3c3c3c;
-    --page-color: #e8e5cf;
+    --page-color: #d7d7d3;
     --book-color: #202020;
     --spine-color: #000000;
     --UItext-color: #ffffff;
     --color-indicator: #202020;
+}
+
+.theme-nature {
+    --contrast-color: #1b492f;
+    --background-color: #6b6258;
+    --page-color: #ecebe6;
+    --book-color: #15512e;
+    --spine-color: #0f2a1a;
+    --UItext-color: #FFFFFF;
+    --color-indicator: #115c33;
+}
+
+.theme-blood {
+    --contrast-color: #3e1616;
+    --background-color: #ccb1b1;
+    --page-color: #ecebe6;
+    --book-color: #771823;
+    --spine-color: #5e141c;
+    --UItext-color: #FFFFFF;
+    --color-indicator: #750a0a;
 }
 
 /*Body*/
@@ -176,6 +196,14 @@ textarea {
 
 .theme-sphere.edgelord {
     background-color: #0f0e0e;
+}
+
+.theme-sphere.blood {
+    background-color: #750a0a;
+}
+
+.theme-sphere.nature {
+    background-color: #0a5f32;
 }
 
 /*Diary page*/

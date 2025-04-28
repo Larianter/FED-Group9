@@ -106,6 +106,12 @@ const formSubmission = (event) => {
                 <div className="theme-option" onClick={() => switchTheme('edgelord')}>
                 <span className="theme-sphere edgelord"></span> Edgelord Theme
                 </div>
+                <div className="theme-option" onClick={() => switchTheme('nature')}>
+                <span className="theme-sphere nature"></span> Nature Theme
+                </div>
+                <div className ="theme-option" onClick={() => switchTheme('blood')}>
+                <span className="theme-sphere blood"></span> Blood Theme
+                </div>
             </div>
             </div>
         )}
