@@ -21,6 +21,26 @@
     --color-indicator: #CE7C92;
  }
 
+.theme-space-marine {
+    --contrast-color: #0d407f;
+    --background-color: #6C534E;
+    --page-color: #ecebe6;
+    --book-color: #1f5191;
+    --spine-color: #0d407f;
+    --UItext-color: #FFFFFF;
+    --color-indicator: #4e4593;
+}
+
+.theme-edgelord {
+    --contrast-color: #0d0d0d;
+    --background-color: #3c3c3c;
+    --page-color: #e8e5cf;
+    --book-color: #202020;
+    --spine-color: #000000;
+    --UItext-color: #ffffff;
+    --color-indicator: #202020;
+}
+
 /*Body*/
 body {
     margin: 0;
@@ -149,7 +169,14 @@ textarea {
 .theme-sphere.neapolitan {
     background-color: #CE7C92;
 }
+  
+.theme-sphere.space-marine {
+    background-color: #1f5191;
+}
 
+.theme-sphere.edgelord {
+    background-color: #0f0e0e;
+}
 
 /*Diary page*/
 .diary-page {
