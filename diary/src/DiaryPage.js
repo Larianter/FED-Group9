@@ -30,6 +30,9 @@ const formSubmission = (event) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [popupType, setPopupType] = useState(null);
 
+    const [fontFamily, setFontFamily] = useState("Inknut Antiqua");
+    const [fontColor, setFontColor] = useState("#000000")
+
     useEffect(() => {
         const savedTheme = localStorage.getItem('selectedTheme');
         if (savedTheme) {
@@ -69,29 +72,10 @@ const formSubmission = (event) => {
         closePopup();
     };
 
-    function DiaryEditor() {
-        const [fontFamily, setFontFamily] = useState('Inknut Antiqua');
-        const [fontColor, setFontColor] = useState('#000000');
-        const [highlightColor, setHighlightColor] = useState('#ffffff');
-      
-        const textareaStyle = {
-          fontFamily: fontFamily,
-          color: fontColor,
-          backgroundColor: highlightColor,
-          border: '#685944 2px solid',
-          borderRadius: '2px',
-          width: '300px',
-          height: '200px',
-          resize: 'none',
-        };
-      
-        return (
-          <>
-            <textarea style={textareaStyle} />
-            {/* Your Popup goes here */}
-          </>
-        );
-      }
+      const textareaDynamicStyle = {
+        fontFamily: fontFamily,
+        color: fontColor,
+    };
 
     return (
         <div className="diary-container">
@@ -140,8 +124,8 @@ const formSubmission = (event) => {
                         <form onSubmit={formSubmission} className="entry-form" >
                             <input className="entry-field" type="text" id="title" placeholder="Title" />
                             <div className="entry-subcontainer">
-                                <textarea className="entry-field-text" type="text1" id="text1" maxLength="1100" placeholder="Start writing..." />
-                                <textarea className="entry-field-text" type="text2" id="text2" maxLength="1100" placeholder="Start writing..." />
+                                <textarea className="entry-field-text" type="text1" id="text1" maxLength="1100" placeholder="Start writing..." style={textareaDynamicStyle}/>
+                                <textarea className="entry-field-text" type="text2" id="text2" maxLength="1100" placeholder="Start writing..." style={textareaDynamicStyle}/>
                             </div>
                             <label className="mood-tracker-header">Today's Mood</label>
                             <div className="entry-mood-tracker">
@@ -173,7 +157,7 @@ const formSubmission = (event) => {
                     <div className="sidebar-text-popup-stroke">
                         <div className="text-popup-section">
                             <label>Typography:</label>
-                            <select className="typography-select">
+                            <select onChange={(e) => setFontFamily(e.target.value)} className="typography-select">
                                 <option value="default">Default</option>
                                 <option value="serif">Serif</option>
                                 <option value="sans-serif">Sans Serif</option>
@@ -196,7 +180,7 @@ const formSubmission = (event) => {
 
                         <div className="text-popup-section">
                             <label>Text highlight:</label>
-                            <input type="color" className="color-input" />
+                            <input type="color" className="color-input" onChange={(e) => setFontColor(e.target.value)}/>
                         </div>
                         <button className="close-popup-button" onClick={closePopup}>Save Changes</button>
                     </div>
