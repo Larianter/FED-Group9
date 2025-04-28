@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import  "./DiaryStyleSheet.css";
 import { useNavigate } from "react-router-dom";
-import { getAllEntries, updateEntry } from "./DiaryStorage";
+import { deleteEntry, getAllEntries, updateEntry } from "./DiaryStorage";
 
 //Maps mood entries and returns summary
 function getMoodSummaries(entries) {
@@ -98,28 +98,39 @@ function EntryPageUI() {
             <div className="modal-background" onClick={() => setSelectedEntry(null)}>
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                     <h2>Edit Entry</h2>
+                    <p1>{selectedEntry.timestamp.split('T')[0]}</p1>
                     <div>
                         <input 
                             type="text"
                             value={selectedEntry.title}
-                            onChange={(e) => setSelectedEntry({...selectedEntry, title: e.target.value})}>
+                            onChange={(e) => setSelectedEntry({...selectedEntry, title: e.target.value})}
+                            className="entry-field">
                         </input>
                     </div>
-                    <div>
+                    <div className="entry-subcontainer">
                         <textarea
                             value={selectedEntry.text1}
-                            onChange={(e) => setSelectedEntry({...selectedEntry, text1: e.target.value})}>
+                            onChange={(e) => setSelectedEntry({...selectedEntry, text1: e.target.value})}
+                            className="entry-field-text">
                         </textarea>
                         <textarea
                             value={selectedEntry.text2}
-                            onChange={(e) => setSelectedEntry({...selectedEntry, text2: e.target.value})}>
+                            onChange={(e) => setSelectedEntry({...selectedEntry, text2: e.target.value})}
+                            className="entry-field-text">
                         </textarea>
                     </div>
                     <div>
                         <button onClick={() => {
-                            updateEntry(selectedEntry.id,{title: selectedEntry.title,text: selectedEntry.text}); setSelectedEntry(null);
+                            updateEntry(selectedEntry.id,{title: selectedEntry.title,text1: selectedEntry.text1,text2: selectedEntry.text2});
+                            setEntries(getAllEntries());
+                            setSelectedEntry(null);
                             }} className="button">Save</button>
                         <button onClick={() => setSelectedEntry(null)} className="button">Cancel</button>
+                        <button onClick={() => {
+                            deleteEntry(selectedEntry.id);
+                            setEntries(getAllEntries());
+                            setSelectedEntry(null);
+                            }} className="button">Delete</button>
                     </div>
                 </div>
             </div>

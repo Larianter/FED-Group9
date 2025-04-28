@@ -339,12 +339,12 @@ textarea {
 }
 
 .modal-content {
-    background: var(--background-color);
+    background: var(--page-color);
     padding: 2rem;
     border: var(--book-color) 6px solid;
     border-radius: 12px;
-    width: 20%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 1000px;
     font-size: 1rem;
     color: var(--contrast-color);
 }
