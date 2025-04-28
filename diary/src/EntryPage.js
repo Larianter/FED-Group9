@@ -51,10 +51,6 @@ function EntryPageUI() {
         {/*Header*/}
         <div className="diary-header">
             <button className="diary-title" onClick={navigateToDiary}>Diary Entries</button>
-            <div className="customize-section">
-                <button>Customize page</button>
-                <span className="color-indicator"></span>
-            </div>
         </div>
 
         {/*Diary page*/}

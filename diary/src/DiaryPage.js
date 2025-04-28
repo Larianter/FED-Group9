@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import  "./DiaryStyleSheet.css";
 import { useNavigate } from "react-router-dom";
 import Popup from "./Popup"
 import { addEntry } from "./DiaryStorage";
-import { useEffect } from "react";
 
 const formSubmission = (event) => {
     event.preventDefault(); // Prevent the form from submitting and reloading the page
@@ -69,6 +68,30 @@ const formSubmission = (event) => {
         setIsThemePopupOpen(false);
         closePopup();
     };
+
+    function DiaryEditor() {
+        const [fontFamily, setFontFamily] = useState('Inknut Antiqua');
+        const [fontColor, setFontColor] = useState('#000000');
+        const [highlightColor, setHighlightColor] = useState('#ffffff');
+      
+        const textareaStyle = {
+          fontFamily: fontFamily,
+          color: fontColor,
+          backgroundColor: highlightColor,
+          border: '#685944 2px solid',
+          borderRadius: '2px',
+          width: '300px',
+          height: '200px',
+          resize: 'none',
+        };
+      
+        return (
+          <>
+            <textarea style={textareaStyle} />
+            {/* Your Popup goes here */}
+          </>
+        );
+      }
 
     return (
         <div className="diary-container">
@@ -159,7 +182,8 @@ const formSubmission = (event) => {
                             </select>
                         </div>
 
-                        <div className="text-popup-buttons">
+                        {/*WIP Functionality*/}
+                        <div className="text-popup-buttons"> 
                             <button className="text-style-button">B</button>
                             <button className="text-style-button">I</button>
                             <button className="text-style-button">U</button>
@@ -174,7 +198,7 @@ const formSubmission = (event) => {
                             <label>Text highlight:</label>
                             <input type="color" className="color-input" />
                         </div>
-                        <button className="close-popup-button" onClick={closePopup}>Close</button>
+                        <button className="close-popup-button" onClick={closePopup}>Save Changes</button>
                     </div>
                 </div>
                 </>
@@ -184,7 +208,6 @@ const formSubmission = (event) => {
                 <div className="sidebar-other-popup">
                     <div className="sidebar-other-popup-stroke">
                     <button className="danger-button">Clear page</button>
-                    <button className="danger-button">Delete entry</button>
                     <button className="close-popup-button" onClick={closePopup}>Close</button>
                     </div>
                 </div>
