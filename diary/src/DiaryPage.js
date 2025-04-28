@@ -56,6 +56,11 @@ const formSubmission = (event) => {
     setPopupType(null);
     };
 
+    const openOtherPopup = () => {
+        setPopupType('other');
+        setIsPopupOpen(true);
+      };
+
     const switchTheme = (themeName) => {
         document.body.className = ''; // Clear previous classes
         document.body.classList.add(`theme-${themeName}`);
@@ -107,8 +112,7 @@ const formSubmission = (event) => {
         {/*Sidebar*/}
         <div className="sidebar-button-container">
             <button className="sidebar-button" onClick = {openTextPopup}>T</button>
-            <button className="sidebar-button">🖼</button>
-            <button className="sidebar-button">...</button>
+            <button className="sidebar-button" onClick = {openOtherPopup}>...</button>
         </div>
         <Popup isOpen={isPopupOpen} onClose={closePopup}>
             {popupType === 'text' && (
@@ -159,6 +163,17 @@ const formSubmission = (event) => {
                         </div>
                     </div>
                     </div>
+                </>
+            )}
+            {popupType === 'other' && (   
+                <>
+                <div className="sidebar-other-popup">
+                    <div className="sidebar-other-popup-stroke">
+                    <button className="danger-button">Clear page</button>
+                    <button className="danger-button">Delete entry</button>
+                    <button className="close-popup-button" onClick={closePopup}>Close</button>
+                    </div>
+                </div>
                 </>
             )}
         </Popup>
