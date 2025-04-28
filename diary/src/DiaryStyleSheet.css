@@ -22,11 +22,11 @@
  }
 
 .theme-space-marine {
-    --contrast-color: #0d407f;
-    --background-color: #8196b3;
-    --page-color: #ecebe6;
-    --book-color: #1f5191;
-    --spine-color: #0d407f;
+    --contrast-color: #1b467b;
+    --background-color: #5a687b;
+    --page-color: #d3d3d3;
+    --book-color: #3d608f;
+    --spine-color: #244773;
     --UItext-color: #FFFFFF;
     --color-indicator: #4e4593;
 }
