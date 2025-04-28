@@ -46,11 +46,6 @@ const formSubmission = (event) => {
     setIsPopupOpen(true);
     };
 
-    const openThemePopup = () => {
-    setPopupType('theme');
-    setIsPopupOpen(true);
-    };
-
     const closePopup = () => {
     setIsPopupOpen(false);
     setPopupType(null);
@@ -61,10 +56,17 @@ const formSubmission = (event) => {
         setIsPopupOpen(true);
       };
 
+    const toggleThemePopup = () => {
+        setIsThemePopupOpen(prev => !prev);
+    };
+
+    const [isThemePopupOpen, setIsThemePopupOpen] = useState(false);
+
     const switchTheme = (themeName) => {
         document.body.className = ''; // Clear previous classes
         document.body.classList.add(`theme-${themeName}`);
         localStorage.setItem('selectedTheme', themeName);
+        setIsThemePopupOpen(false);
         closePopup();
     };
 
@@ -75,10 +77,25 @@ const formSubmission = (event) => {
         <div className="diary-header">
             <button className="diary-title" onClick={navigateToEntry}>My Diary</button>
             <div className="customize-section">
-                <button onClick={openThemePopup}>Customize page</button> {/*Opens color popup*/}
+                <button onClick={toggleThemePopup}>Customize page</button> {/*Opens color popup*/}
                 <span className="color-indicator"></span>
             </div>
         </div>
+
+        {/*Theme Popup*/}
+        {isThemePopupOpen && (
+            <div className="theme-option-container">
+            <div className="theme-option-stroke">
+                <h2>Choose a Theme</h2>
+                <div className="theme-option" onClick={() => switchTheme('brown')}>
+                <span className="theme-sphere brown"></span> Brown Theme
+                </div>
+                <div className="theme-option" onClick={() => switchTheme('neapolitan')}>
+                <span className="theme-sphere neapolitan"></span> Neapolitan Theme
+                </div>
+            </div>
+            </div>
+        )}
 
         {/*Diary page*/}
         <div className="diary-page">
@@ -148,21 +165,6 @@ const formSubmission = (event) => {
                         <button className="close-popup-button" onClick={closePopup}>Close</button>
                     </div>
                 </div>
-                </>
-            )}
-            {popupType === 'theme' && (
-                <>
-                <div className="theme-option-container">
-                    <div className="theme-option-stroke">
-                        <h2>Choose a Theme</h2>
-                        <div className="theme-option" onClick={() => switchTheme('brown')}>
-                        <span className="theme-sphere brown"></span> Brown Theme
-                        </div>
-                        <div className="theme-option" onClick={() => switchTheme('neapolitan')}>
-                        <span className="theme-sphere neapolitan"></span> Neapolitan Theme
-                        </div>
-                    </div>
-                    </div>
                 </>
             )}
             {popupType === 'other' && (   
