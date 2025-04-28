@@ -25,13 +25,27 @@ const formSubmission = (event) => {
     event.target.reset();
 };
 
+const clearFields = () => {
+    const titleField = document.getElementById('title');
+    const text1Field = document.getElementById('text1');
+    const text2Field = document.getElementById('text2');
+    const moodRadios = document.getElementsByName('mood');
+
+    if (titleField) titleField.value = '';
+    if (text1Field) text1Field.value = '';
+    if (text2Field) text2Field.value = '';
+    moodRadios.forEach(radio => {
+        radio.checked = false;
+    });
+};
+
  function DiaryPageUI() {
     const navigate = useNavigate();
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [popupType, setPopupType] = useState(null);
 
     const [fontFamily, setFontFamily] = useState("Inknut Antiqua");
-    const [fontColor, setFontColor] = useState("#000000")
+    const [fontColor, setFontColor] = useState("#453131")
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('selectedTheme');
@@ -175,12 +189,12 @@ const formSubmission = (event) => {
 
                         <div className="text-popup-section">
                             <label>Text colour:</label>
-                            <input type="color" className="color-input" />
+                            <input type="color" className="color-input" onChange={(e) => setFontColor(e.target.value)} />
                         </div>
 
                         <div className="text-popup-section">
                             <label>Text highlight:</label>
-                            <input type="color" className="color-input" onChange={(e) => setFontColor(e.target.value)}/>
+                            <input type="color" className="color-input" />
                         </div>
                         <button className="close-popup-button" onClick={closePopup}>Save Changes</button>
                     </div>
@@ -191,7 +205,7 @@ const formSubmission = (event) => {
                 <>
                 <div className="sidebar-other-popup">
                     <div className="sidebar-other-popup-stroke">
-                    <button className="danger-button">Clear page</button>
+                    <button className="danger-button" onClick={clearFields}>Clear page</button>
                     <button className="close-popup-button" onClick={closePopup}>Close</button>
                     </div>
                 </div>
