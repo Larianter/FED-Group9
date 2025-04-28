@@ -121,6 +121,7 @@ const formSubmission = (event) => {
             {popupType === 'theme' && (
                 <>
                 <div className="theme-option-container">
+                    <div className="theme-option-stroke"></div>
                     <h2>Choose a Theme</h2>
                     <div className="theme-option" onClick={() => switchTheme('brown')}>
                         <span className="theme-sphere brown"></span> Brown Theme

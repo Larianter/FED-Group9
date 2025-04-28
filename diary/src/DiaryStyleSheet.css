@@ -191,7 +191,7 @@ textarea {
 /*Diary entry form*/
 .entry-form {
     display:flex;
-    position:fixed;
+    position:relative;
     flex-direction: column;
     justify-content: center;
     align-items: left;
